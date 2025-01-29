@@ -878,7 +878,7 @@
   {
     "license_name": "Apache 2.0",
     "license_url": "https://choosealicense.com/licenses/apache-2.0/",
-    "chat_template": "<|begin_of_sentence|>{system_prompt}<|User|>{user_prompt}<|Assistant|>",
+    "chat_template": "{% for message in messages %}{% if loop.first and messages[0]['role'] != 'system' %}{{ '<|begin▁of▁sentence|>' + '{system_prompt}' + '<|User|>' + message['content'] + '<|Assistant|>' }}{% else %}{{ '<|User|>' + message['content'] + '<|Assistant|>' }}{% endif %}{% endfor %}",
     "name": "DeepSeek-R1-Distill-Qwen-7B-abliterated-q4-k-m-Chat",
     "provider_url": "https://huggingface.co/ngxson/DeepSeek-R1-Distill-Qwen-7B-abliterated-GGUF",
     "partition_urls": [
